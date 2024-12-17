@@ -4,16 +4,26 @@
   "description": "A template for building plugins for Medusa",
   "author": "olivermrbl",
   "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "babel src -d . --ignore **/__tests__",
-    "prepare": "cross-env NODE_ENV=production npm run build",
-    "watch": "babel -w src --out-dir . --ignore **/__tests__",
-    "test": "jest"
+    "clean": "rm -rf dist",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "jest",
+    "prepare": "cross-env NODE_ENV=production npm run build"
   },
   "dependencies": {
+    "@medusajs/modules-sdk": "^2.1.2",
+    "@medusajs/types": "^2.1.2",
+    "@medusajs/utils": "^2.1.2",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "medusa-core-utils": "^1.1.30"
+    "medusa-core-utils": "^1.1.30",
+    "typescript": "^5.7.2"
   },
   "peerDependencies": {
     "medusa-interfaces": "1.x"
